@@ -13,15 +13,15 @@
  * and limitations under the License.
  */
 
-package com.couchbase.lite.store;
+package com.couchbase.lite.v1.store;
 
 import com.couchbase.cbforest.Constants;
 import com.couchbase.cbforest.Document;
 import com.couchbase.cbforest.ForestException;
-import com.couchbase.lite.Manager;
-import com.couchbase.lite.Status;
-import com.couchbase.lite.internal.RevisionInternal;
-import com.couchbase.lite.util.Log;
+import com.couchbase.lite.v1.Manager;
+import com.couchbase.lite.v1.Status;
+import com.couchbase.lite.v1.internal.RevisionInternal;
+import com.couchbase.lite.v1.util.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;

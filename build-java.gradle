@@ -38,7 +38,7 @@ task generateForestDBStoreJniHeaders(type: Exec, description: 'Generate ForestDB
     def classpath      = "src/main/java"
     def nativeIncludes = "jni/source"
     commandLine "javah", "-d", "$nativeIncludes", "-classpath", "$classpath",
-            "com.couchbase.lite.store.ForestDBStore"
+            "com.couchbase.lite.v1.store.ForestDBStore"
     dependsOn classes
 }
 
@@ -491,7 +491,7 @@ repositories {
 dependencies {
     compile !hasProperty("buildAgainstMavenArtifacts") ?
             project(':libraries:couchbase-lite-java-core') :
-            'com.couchbase.lite:couchbase-lite-java-core:' + version
+            'com.couchbase.lite.v1:couchbase-lite-java-core:' + version
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile 'com.fasterxml.jackson.core:jackson-databind:2.5.0'
@@ -527,7 +527,7 @@ uploadArchives {
                 authentication(userName: System.getenv("MAVEN_UPLOAD_USERNAME"), password: System.getenv("MAVEN_UPLOAD_PASSWORD"))
             }
             pom.version = version
-            pom.groupId = 'com.couchbase.lite'
+            pom.groupId = 'com.couchbase.lite.v1'
             pom.artifactId = 'couchbase-lite-java-forestdb'
             pom.project {
                 licenses {

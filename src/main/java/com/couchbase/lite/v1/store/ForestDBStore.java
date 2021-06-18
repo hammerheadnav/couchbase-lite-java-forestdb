@@ -12,37 +12,37 @@
  * either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.couchbase.lite.store;
+package com.couchbase.lite.v1.store;
 
 import com.couchbase.cbforest.Constants;
 import com.couchbase.cbforest.Database;
 import com.couchbase.cbforest.Document;
 import com.couchbase.cbforest.DocumentIterator;
 import com.couchbase.cbforest.ForestException;
-import com.couchbase.lite.BlobKey;
-import com.couchbase.lite.ChangesOptions;
-import com.couchbase.lite.CouchbaseLiteException;
-import com.couchbase.lite.DocumentChange;
-import com.couchbase.lite.Manager;
-import com.couchbase.lite.Misc;
-import com.couchbase.lite.Predicate;
-import com.couchbase.lite.Query;
-import com.couchbase.lite.QueryOptions;
-import com.couchbase.lite.QueryRow;
-import com.couchbase.lite.ReplicationFilter;
-import com.couchbase.lite.Revision;
-import com.couchbase.lite.RevisionList;
-import com.couchbase.lite.Status;
-import com.couchbase.lite.TransactionalTask;
-import com.couchbase.lite.View;
-import com.couchbase.lite.internal.RevisionInternal;
-import com.couchbase.lite.support.RevisionUtils;
-import com.couchbase.lite.support.action.Action;
-import com.couchbase.lite.support.action.ActionBlock;
-import com.couchbase.lite.support.action.ActionException;
-import com.couchbase.lite.support.security.SymmetricKey;
-import com.couchbase.lite.util.Log;
-import com.couchbase.lite.util.NativeLibUtils;
+import com.couchbase.lite.v1.BlobKey;
+import com.couchbase.lite.v1.ChangesOptions;
+import com.couchbase.lite.v1.CouchbaseLiteException;
+import com.couchbase.lite.v1.DocumentChange;
+import com.couchbase.lite.v1.Manager;
+import com.couchbase.lite.v1.Misc;
+import com.couchbase.lite.v1.Predicate;
+import com.couchbase.lite.v1.Query;
+import com.couchbase.lite.v1.QueryOptions;
+import com.couchbase.lite.v1.QueryRow;
+import com.couchbase.lite.v1.ReplicationFilter;
+import com.couchbase.lite.v1.Revision;
+import com.couchbase.lite.v1.RevisionList;
+import com.couchbase.lite.v1.Status;
+import com.couchbase.lite.v1.TransactionalTask;
+import com.couchbase.lite.v1.View;
+import com.couchbase.lite.v1.internal.RevisionInternal;
+import com.couchbase.lite.v1.support.RevisionUtils;
+import com.couchbase.lite.v1.support.action.Action;
+import com.couchbase.lite.v1.support.action.ActionBlock;
+import com.couchbase.lite.v1.support.action.ActionException;
+import com.couchbase.lite.v1.support.security.SymmetricKey;
+import com.couchbase.lite.v1.util.Log;
+import com.couchbase.lite.v1.util.NativeLibUtils;
 
 import java.io.File;
 import java.io.IOException;

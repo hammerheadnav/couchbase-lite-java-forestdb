@@ -3,4 +3,5 @@
 	url = https://github.com/couchbaselabs/cbforest.git
 [submodule "libraries/couchbase-lite-java-core"]
 	path = libraries/couchbase-lite-java-core
-	url = https://github.com/couchbase/couchbase-lite-java-core.git
+	url = https://github.com/hammerheadnav/couchbase-lite-java-core.git
+	branch = release/1.4.1

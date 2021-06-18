@@ -16,7 +16,7 @@ package com.couchbase.cbforest;
 
 import android.test.AndroidTestCase;
 
-import com.couchbase.lite.util.Log;
+import com.couchbase.lite.v1.util.Log;
 
 import java.io.File;
 

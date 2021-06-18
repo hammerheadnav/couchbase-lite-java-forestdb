@@ -4,5 +4,5 @@ APP_PLATFORM := android-19
 # it seems no backward compatibility. 
 # APP_PLATFORM := android-21
 NDK_TOOLCHAIN_VERSION := clang
-APP_STL := gnustl_static
+APP_STL := c++_static
 # APP_OPTIM := debug # default is `release`

@@ -12,7 +12,7 @@
  * either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.couchbase.lite.util;
+package com.couchbase.lite.v1.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -55,7 +55,7 @@ public class NativeLibUtils {
     }
 
     private static String _getConfiguredLibraryPath(String libraryName) {
-        String key = String.format(Locale.ENGLISH, "com.couchbase.lite.lib.%s.path", libraryName);
+        String key = String.format(Locale.ENGLISH, "com.couchbase.lite.v1.lib.%s.path", libraryName);
 
         return System.getProperty(key);
     }

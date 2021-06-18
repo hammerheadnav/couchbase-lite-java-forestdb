@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "com_couchbase_lite_store_ForestDBStore.h"
+#include "com_couchbase_lite_v1_store_ForestDBStore.h"
 
 
 #if !defined (_CRYPTO_CC) \

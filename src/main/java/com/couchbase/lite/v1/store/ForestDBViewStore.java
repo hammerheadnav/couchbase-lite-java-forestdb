@@ -12,7 +12,7 @@
  * either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-package com.couchbase.lite.store;
+package com.couchbase.lite.v1.store;
 
 import com.couchbase.cbforest.Constants;
 import com.couchbase.cbforest.Database;
@@ -22,22 +22,25 @@ import com.couchbase.cbforest.ForestException;
 import com.couchbase.cbforest.Indexer;
 import com.couchbase.cbforest.QueryIterator;
 import com.couchbase.cbforest.View;
-import com.couchbase.lite.CouchbaseLiteException;
-import com.couchbase.lite.Emitter;
-import com.couchbase.lite.Manager;
-import com.couchbase.lite.Mapper;
-import com.couchbase.lite.Misc;
-import com.couchbase.lite.Predicate;
-import com.couchbase.lite.QueryOptions;
-import com.couchbase.lite.QueryRow;
-import com.couchbase.lite.Reducer;
-import com.couchbase.lite.Status;
-import com.couchbase.lite.internal.RevisionInternal;
-import com.couchbase.lite.support.action.Action;
-import com.couchbase.lite.support.action.ActionBlock;
-import com.couchbase.lite.support.action.ActionException;
-import com.couchbase.lite.support.security.SymmetricKey;
-import com.couchbase.lite.util.Log;
+import com.couchbase.lite.v1.CouchbaseLiteException;
+import com.couchbase.lite.v1.Emitter;
+import com.couchbase.lite.v1.Manager;
+import com.couchbase.lite.v1.Mapper;
+import com.couchbase.lite.v1.Misc;
+import com.couchbase.lite.v1.Predicate;
+import com.couchbase.lite.v1.QueryOptions;
+import com.couchbase.lite.v1.QueryRow;
+import com.couchbase.lite.v1.Reducer;
+import com.couchbase.lite.v1.Status;
+import com.couchbase.lite.v1.internal.RevisionInternal;
+import com.couchbase.lite.v1.store.QueryRowStore;
+import com.couchbase.lite.v1.store.ViewStore;
+import com.couchbase.lite.v1.store.ViewStoreDelegate;
+import com.couchbase.lite.v1.support.action.Action;
+import com.couchbase.lite.v1.support.action.ActionBlock;
+import com.couchbase.lite.v1.support.action.ActionException;
+import com.couchbase.lite.v1.support.security.SymmetricKey;
+import com.couchbase.lite.v1.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -558,7 +561,7 @@ public class ForestDBViewStore implements ViewStore, QueryRowStore, Constants {
     }
 
     @Override
-    public void setCollation(com.couchbase.lite.View.TDViewCollation collation) {
+    public void setCollation(com.couchbase.lite.v1.View.TDViewCollation collation) {
         Log.w(TAG, "This method should be removed");
     }
 

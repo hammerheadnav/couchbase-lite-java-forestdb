@@ -66,7 +66,7 @@ android {
         def classpath      = "src/main/java"
         def nativeIncludes = "jni/source"
         commandLine "javah", "-d", "$nativeIncludes", "-classpath", "$classpath",
-                "com.couchbase.lite.store.ForestDBStore"
+                "com.couchbase.lite.v1.store.ForestDBStore"
     }
 
     task generateCBForestJniHeaders(type: Exec, description: 'Generate CBForest JNI C header files') {
@@ -99,11 +99,12 @@ android {
 
     // call regular ndk-build(.cmd) script from app directory
     task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
-        def ndkDir = android.ndkDirectory
-        def ndkBuild = "$ndkDir/ndk-build"
-        if(Os.isFamily(Os.FAMILY_WINDOWS))
-            ndkBuild = "$ndkDir\\ndk-build.cmd"
-        commandLine "$ndkBuild", '-C', file('jni').absolutePath
+        commandLine "true"
+//        def ndkDir = android.ndkDirectory
+//        def ndkBuild = "$ndkDir/ndk-build"
+//        if(Os.isFamily(Os.FAMILY_WINDOWS))
+//            ndkBuild = "$ndkDir\\ndk-build.cmd"
+//        commandLine "$ndkBuild", '-C', file('jni').absolutePath
     }
 
     buildNative.dependsOn 'generateCBForestJniHeaders'
@@ -132,9 +133,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile !hasProperty("buildAndroidWithArtifacts") ?
-            project(':libraries:couchbase-lite-java-core') :
-            'com.couchbase.lite:couchbase-lite-java-core:' + version
+    compile project(":libraries:couchbase-lite-java-core")
 
     androidTestCompile 'com.fasterxml.jackson.core:jackson-databind:2.5.0'
     androidTestCompile 'com.fasterxml.jackson.core:jackson-core:2.5.0'
@@ -157,30 +156,30 @@ task createMavenDirectory(type: Exec) {
 createMavenDirectory.onlyIf { System.getenv("MAVEN_UPLOAD_REPO_URL").contains("files") }
 
 // first create the directory, then do the upload
-task uploadArchivesWrapper(dependsOn: createMavenDirectory) << {
-    uploadArchives.execute()
-}
-
-// this will upload, but will not first create a directory (which is needed on some servers)
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: System.getenv("MAVEN_UPLOAD_REPO_URL")) {
-                authentication(userName: System.getenv("MAVEN_UPLOAD_USERNAME"), password: System.getenv("MAVEN_UPLOAD_PASSWORD"))
-            }
-            pom.version = version
-            pom.groupId = 'com.couchbase.lite'
-            pom.artifactId = 'couchbase-lite-android-forestdb'
-            pom.project {
-                licenses {
-                    license {
-                        name 'Couchbase Community Edition License Agreement'
-                        url 'http://www.couchbase.com/agreement/community'
-                        distribution 'repo'
-                    }
-                }
-            }
-        }
-    }
-}
+//task uploadArchivesWrapper(dependsOn: createMavenDirectory) << {
+//    uploadArchives.execute()
+//}
+//
+//// this will upload, but will not first create a directory (which is needed on some servers)
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: System.getenv("MAVEN_UPLOAD_REPO_URL")) {
+//                authentication(userName: System.getenv("MAVEN_UPLOAD_USERNAME"), password: System.getenv("MAVEN_UPLOAD_PASSWORD"))
+//            }
+//            pom.version = version
+//            pom.groupId = 'com.couchbase.lite.v1'
+//            pom.artifactId = 'couchbase-lite-android-forestdb'
+//            pom.project {
+//                licenses {
+//                    license {
+//                        name 'Couchbase Community Edition License Agreement'
+//                        url 'http://www.couchbase.com/agreement/community'
+//                        distribution 'repo'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
